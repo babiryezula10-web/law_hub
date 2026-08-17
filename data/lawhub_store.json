@@ -46,7 +46,7 @@
       "status": "ACTIVE"
     },
     {
-      "id": "usr_student_1",
+      "id": "usr_6_u2enm",
       "name": "Student Scholar",
       "email": "student@lawhub.ug",
       "role": "Student",
@@ -64,7 +64,7 @@
       "status": "ACTIVE"
     },
     {
-      "id": "usr_student_2",
+      "id": "usr_8_tbbvq",
       "name": "Ronald Okello",
       "email": "ronald.okello@lawhub.ug",
       "role": "Student",
@@ -397,5 +397,5 @@
       "citation": "Const. 1995 (Consolidated 2023 Edition)"
     }
   ],
-  "lastSaved": "2026-08-14T21:00:53.131Z"
+  "lastSaved": "2026-08-17T18:27:41.857Z"
 }

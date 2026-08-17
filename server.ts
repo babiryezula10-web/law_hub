@@ -1560,6 +1560,7 @@ async function startServer() {
     app.use(vite.middlewares);
     app.use("*", async (req, res, next) => {
       const url = req.originalUrl;
+      if (url.startsWith("/api/")) return next();
       try {
         const indexPath = path.resolve(process.cwd(), "index.html");
         if (fs.existsSync(indexPath)) {
@@ -1585,7 +1586,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`LawHub Server running on http://0.0.0.0:${PORT}`);
+    console.log(`LawHub Server running on http://localhost:${PORT}`);
   });
 }
 

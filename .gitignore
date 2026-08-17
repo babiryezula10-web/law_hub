@@ -1,7 +1,52 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 dist/
+*.cjs
+!server.cjs
+
+# Environment variables
 .env
 .env.local
 .env.*.local
-*.log
+
+# Persistent data store (contains user data)
+data/lawhub_store.json
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# OS-generated files
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Lock files (keep package-lock.json, ignore bun.lock if not primary)
+# bun.lock
+
+# Coverage and test reports
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
