@@ -81,6 +81,7 @@ export interface StatuteSection {
   sectionNumber: string;
   title: string;
   text: string;
+  content?: string;
   subsections?: string[];
   amendmentNotes?: string;
   keyCases?: string[];
@@ -139,6 +140,7 @@ export interface StatutoryInstrument {
   type: 'Regulation' | 'Order' | 'Rules' | 'Legal Notice' | 'By-law' | 'Proclamation' | 'Direction' | 'Government Notice';
   parentLegislation: string;
   datePromulgated: string;
+  gazetteDate?: string;
   status: LegalStatus;
   contentSummary: string;
   fullText?: string;
@@ -167,6 +169,7 @@ export interface LegalCase {
   ratioDecidendi: string;
   obiterDicta?: string;
   legalPrinciples: string[];
+  principlesApplied?: string[];
   relatedStatutes?: string[];
   statutesConsidered?: string[];
   regulationsConsidered?: string[];
@@ -316,6 +319,7 @@ export interface LegalDictionaryTerm {
   relatedTerms: string[];
   relevantCases: string[];
   relevantStatutes: string[];
+  statutoryRef?: string;
   category: string;
 }
 
@@ -350,6 +354,7 @@ export interface RedVolumeEntry {
   statutoryRef: string; // e.g. Civil Procedure Act Cap 71 / S.I. 71-1
   summary: string;
   fullText?: string;
+  keyRules?: string[];
   keyRulesOrForms?: string[];
   practiceDirections?: string[];
   relatedCases?: string[];
@@ -361,6 +366,8 @@ export interface LegalResourceGuide {
   title: string;
   category: 'Moot Court' | 'Citation & OSCOLA' | 'Legal Drafting' | 'Essay Writing' | 'Exam Technique' | 'Case Briefing';
   description: string;
+  summary?: string;
+  steps?: string[];
   sections: { heading: string; body: string; keyTips?: string[] }[];
 }
 

@@ -1,27 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import { Sidebar } from './components/Sidebar';
-import { LandingPage } from './components/LandingPage';
-import { StudentDashboard } from './components/StudentDashboard';
-import { AiLawTutor } from './components/AiLawTutor';
-import { LegalResearchCenter } from './components/LegalResearchCenter';
-import { ConstitutionLibrary } from './components/ConstitutionLibrary';
-import { LecturerDashboard } from './components/LecturerDashboard';
-import { CoursesHub } from './components/CoursesHub';
-import { PastPapersLibrary } from './components/PastPapersLibrary';
-import { QuizCentre } from './components/QuizCentre';
-import { LegalDraftingTool } from './components/LegalDraftingTool';
-import { NotesAndBookmarks } from './components/NotesAndBookmarks';
-import { DownloadsHub } from './components/DownloadsHub';
-import { DeveloperAbout } from './components/DeveloperAbout';
-import { WelcomeScreen } from './components/WelcomeScreen';
-import { RoadmapPage } from './components/RoadmapPage';
-import { AdminPanel } from './components/AdminPanel';
-import { GlobalSearchModal } from './components/GlobalSearchModal';
-import { AuthModal } from './components/AuthModal';
-import { AccessDenied } from './components/AccessDenied';
-import { WatermarkBackground, WatermarkType } from './components/WatermarkBackground';
-import { WatermarkSelectorModal } from './components/WatermarkSelectorModal';
+import {
+  Navbar,
+  Sidebar,
+  LandingPage,
+  StudentDashboard,
+  AiLawTutor,
+  LegalResearchCenter,
+  ConstitutionLibrary,
+  LecturerDashboard,
+  CoursesHub,
+  PastPapersLibrary,
+  QuizCentre,
+  LegalDraftingTool,
+  NotesAndBookmarks,
+  DownloadsHub,
+  DeveloperAbout,
+  WelcomeScreen,
+  RoadmapPage,
+  AdminPanel,
+  GlobalSearchModal,
+  AuthModal,
+  AccessDenied,
+  WatermarkBackground,
+  WatermarkType,
+  WatermarkSelectorModal,
+} from './components';
 
 import { UserRole, UserProfile, Course, SavedNote } from './types';
 import { lawCoursesCatalog, initialNotesList } from './data/mockData';

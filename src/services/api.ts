@@ -418,3 +418,120 @@ export async function generateAiQuiz(payload: AiQuizRequest): Promise<ApiRespons
     body: JSON.stringify(payload),
   });
 }
+
+// ── Compatibility Aliases & Convenience Helpers ───────────────
+
+export const getAdminMetrics = (adminEmail?: string) =>
+  fetchAdminMetrics(adminEmail || 'admin@lawhub.ug');
+
+export const getSubmissions = (role?: string, email?: string, status?: string) =>
+  fetchSubmissions({ role, email, status });
+
+export const getStudentSubmissions = (
+  studentEmail?: string,
+  role?: string,
+  lecturerEmail?: string,
+  status?: string,
+) => fetchStudentSubmissions({ studentEmail, role, lecturerEmail, status });
+
+export const getDocuments = (category?: string, role?: string) =>
+  fetchDocuments({ category, role });
+
+export const getUsers = (role?: string, status?: string) =>
+  fetchUsers('admin@lawhub.ug', { role, status });
+
+export async function updateUserRole(
+  userId: string,
+  newRole: UserRole,
+  adminEmail: string = 'admin@lawhub.ug',
+): Promise<ApiResponse<{ success: boolean; user: SystemUser }>> {
+  return request(`${API.USERS}/${userId}/role`, {
+    method: 'PUT',
+    headers: { 'x-user-email': adminEmail },
+    body: JSON.stringify({ role: newRole }),
+  });
+}
+
+export async function updateUserStatus(
+  userId: string,
+  newStatus: 'ACTIVE' | 'SUSPENDED',
+  adminEmail: string = 'admin@lawhub.ug',
+): Promise<ApiResponse<{ success: boolean; user: SystemUser }>> {
+  return request(`${API.USERS}/${userId}/status`, {
+    method: 'PUT',
+    headers: { 'x-user-email': adminEmail },
+    body: JSON.stringify({ status: newStatus }),
+  });
+}
+
+export async function createUser(
+  userData: Partial<SystemUser>,
+  adminEmail: string = 'admin@lawhub.ug',
+): Promise<ApiResponse<{ success: boolean; user: SystemUser }>> {
+  return request(API.USERS, {
+    method: 'POST',
+    headers: { 'x-user-email': adminEmail },
+    body: JSON.stringify(userData),
+  });
+}
+
+export async function deleteUser(
+  userId: string,
+  adminEmail: string = 'admin@lawhub.ug',
+): Promise<ApiResponse<{ success: boolean; message: string }>> {
+  return request(`${API.USERS}/${userId}`, {
+    method: 'DELETE',
+    headers: { 'x-user-email': adminEmail },
+  });
+}
+
+export async function uploadAdminDocument(
+  payload: CreateDocumentPayload,
+  adminEmail: string = 'admin@lawhub.ug',
+) {
+  return createDocument(payload, adminEmail);
+}
+
+export async function updateAdminDocumentStatus(
+  docId: string,
+  status: 'PUBLISHED' | 'DRAFT',
+  adminEmail: string = 'admin@lawhub.ug',
+) {
+  return updateDocument(docId, { status }, adminEmail);
+}
+
+export async function deleteAdminDocument(
+  docId: string,
+  adminEmail: string = 'admin@lawhub.ug',
+) {
+  return deleteDocument(docId, adminEmail);
+}
+
+export const reviewLecturerSubmission = reviewSubmission;
+
+export async function submitLecturerMaterial(payload: Partial<LecturerSubmission>) {
+  return createSubmission(payload);
+}
+
+export async function deleteLecturerSubmission(
+  id: string,
+  adminEmail: string = 'admin@lawhub.ug',
+) {
+  return reviewSubmission(id, { action: 'DELETE', reviewerName: adminEmail });
+}
+
+export async function submitStudentAssignment(payload: Partial<StudentSubmission>) {
+  return createStudentSubmission(payload);
+}
+
+export async function deleteStudentSubmission(
+  id: string,
+  reviewerName: string = 'Lecturer Faculty',
+) {
+  return reviewStudentSubmission(id, { action: 'DELETE', reviewerName });
+}
+
+export const getConstitutionDocuments = fetchConstitution;
+
+export const draftLegalDocument = generateAiDraft;
+
