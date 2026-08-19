@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-heading: 'Cinzel', Georgia, serif;
+  --font-serif: 'Cinzel', Georgia, serif;
+}
+
 @layer base {
   :root {
     --bg-black: #09090b;
@@ -29,15 +34,14 @@
     line-height: 1.7;
   }
 
-  h1, h2, h3, .font-heading {
-    font-family: 'Lexend', sans-serif;
-    font-weight: 700;
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Cinzel', Georgia, serif;
     letter-spacing: -0.01em;
   }
 
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.35rem; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.95rem; }
+  h3 { font-size: 1.45rem; }
 
   p, li, span, label, input, textarea, select, button, a {
     font-size: 1rem;
